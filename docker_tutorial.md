@@ -66,11 +66,40 @@ docker run -it --env-file ./sampe
 docker run -it --env-file sample.env ubuntu env
 
 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOSTNAME=d618b66d5a0c
-TERM=xterm
-MY_HOST=1,1,1,1
+>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ HOSTNAME=d618b66d5a0c
+ TERM=xterm
+ MY_HOST=1,1,1,1
+ HOME=/root
+
+
+## container 내부로 들어가기
+
+docker exec -it my-nginx bash
+>root@7b515c48ce13:/#
+
+## 환경변수 확인하기
+docker exec my-nginx env
+>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=7b515c48ce13
+NGINX_VERSION=1.23.4
+NJS_VERSION=0.7.11
+PKG_RELEASE=1~bullseye
 HOME=/root
 
+## 컨테이너 포트 노출
+docker run -p [Host IP:port] :[Container Port] [container]
+dicker run -p 9999:80 dev-nginx
+
+docker run -d -p 8090:80 nginx
+>localhost:8090으로 인터넷에 접속
+>Welcome to nginx!
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
+
+For online documentation and support please refer to nginx.org.
+Commercial support is available at nginx.com.
+
+Thank you for using nginx.
 
 
+##포트는 않쓰는 포트를 지정해서 넣어주도록 하자 8000->80이라던가
