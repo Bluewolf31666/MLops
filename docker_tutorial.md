@@ -51,3 +51,13 @@ nginx        1.21      0e901e68141f   10 months ago   142MB
 docker run --entrypoint echo ubuntu hello ubuntu
 >hello ubuntu
 
+## docker에서 환경변수도 사용가능
+
+docker run -it -e MY_HOST=1.1.1.1 ubuntu:latest bash
+
+>root@795b4bfbe945:/#
+## bash를 쓰면 container내부로 들어갈수 있음
+ echo $MY_HOST
+>1.1.1.1
+
+
