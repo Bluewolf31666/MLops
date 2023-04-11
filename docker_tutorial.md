@@ -61,3 +61,16 @@ docker run -it -e MY_HOST=1.1.1.1 ubuntu:latest bash
 >1.1.1.1
 
 
+## 파일로 사용시
+docker run -it --env-file ./sampe
+docker run -it --env-file sample.env ubuntu env
+
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=d618b66d5a0c
+TERM=xterm
+MY_HOST=1,1,1,1
+HOME=/root
+
+
+
