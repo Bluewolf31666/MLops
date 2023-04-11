@@ -152,7 +152,27 @@ Commercial support is available at
 <p><em>Thank you for using nginx.</em></p>
 </body>
 </html>
-root@afa1ff347533:/usr/share/nginx/html#
 
 
+# Volume Container
+>docker run -d --name my-volume -it -v $(pwd):/html:/usr/share/nginx/html ubuntu
+
+# my-volume 컨테이너의 볼륨을 공유
+>docker run -d -p 8090:80 -name my-nginx --volumes-from my-volume nginx
+
+## Docker volume
+## host volume은 최초에만 데이터가 연결되므로 추후 반영이 않됨. 즉 바로바로 연동이 되어야 함. 따라서 docker volume을 사용함, 또한 데이터베이스로 연결할수도 있음
+
+docker volume ls #volume 확인
+
+## volume 생성
+>docker volume create --name test_db
+
+
+## 도커 web-volume 볼륨을 nginx의 웹 루트 디렉토리로 마운트
+(하기전에 sql port사용중인지 확인하기)
+docker run -d --name my-sql -v test_db:/var/lib/mysql -p 3306:3306 mysql:5.7
+
+## 바로 mysql안으로 들어가는법
+docker run -d --name my-sql -v test_db:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 mysql:5.7
 
