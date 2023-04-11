@@ -48,6 +48,6 @@ ubuntu       latest    08d22c0ceb15   4 weeks ago     77.8MB
 nginx        1.21      0e901e68141f   10 months ago   142MB
 
 -->ubuntu가 다운로드됨
-
-##
+docker run --entrypoint echo ubuntu hello ubuntu
+>hello ubuntu
 
