@@ -176,3 +176,7 @@ docker run -d --name my-sql -v test_db:/var/lib/mysql -p 3306:3306 mysql:5.7
 ## 바로 mysql안으로 들어가는법
 docker run -d --name my-sql -v test_db:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 mysql:5.7
 
+docker exec -it my-sql bash
+ mysql -u root -p
+ 12345
+ 
