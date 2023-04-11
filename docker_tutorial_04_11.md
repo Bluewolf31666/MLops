@@ -106,3 +106,53 @@ Thank you for using nginx.
 
 
 ## Volume
+>Docker 컨테이너(container)에 쓰여진 데이터는 기본적으로 컨테이너가 삭제될 때 함께 사라지게 됩니다. Docker에서 돌아가는 많은 애플리케이션이 컨테이너의 생명 주기와 관계없이 데이터를 영속적으로 저장을 해야하는데요. 뿐만 아니라 많은 경우 여러 개의 Docker 컨테이너가 하나의 저장 공간을 공유해서 데이터를 읽거나 써야합니다.
+
+>이렇게 Docker 컨테이너의 생명 주기와 관계없이 데이터를 영속적으로 저장할 수 있도록 Docker는 두가지 옵션을 제공하는데요. 첫번째는 Docker 볼륨(volume), 두번째는 바인드 마운트(bind mount)입니다. 이번 포스팅에서는 Docker 컨테이너에 데이터를 저장하는데 사용되는 이 두가지 방법에 대해서 알아보도록 하겠습니다.
+
+![관련이미지](https://docs.docker.com/storage/images/types-of-mounts.png)
+
+
+## Host volume
+>호스트 디렉토리를 컨테이너의 특정 경로에 마운트함
+
+docker run -d -it -p 8090:80 --name my-nginx nginx:1.21
+
+>마운트할 디렉토리 생성
+docker run -d -p 8090:80 -v $(pwd)/html:/user/share/nginx/html --name my-nginx nginx:1.23
+
+>마운드 확인
+docker inspect my-nginx
+
+cd /usr/share/nginx/html
+
+cat index.html
+
+>결과
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+root@afa1ff347533:/usr/share/nginx/html#
+
+
+
