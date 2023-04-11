@@ -103,3 +103,6 @@ Thank you for using nginx.
 
 
 ##포트는 않쓰는 포트를 지정해서 넣어주도록 하자 8000->80이라던가
+
+
+## Volume
