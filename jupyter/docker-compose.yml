@@ -1,0 +1,26 @@
+version: '3'
+  
+services:
+  jupyter-ds:
+    container_name: jupyter-ds
+    labels:
+      description: Intel Python 2 using Jupyter Notebooks
+      name: jupyter notebook 
+    ports:
+      - "8888:8888"
+    volumes:
+      - /home/wsl/jupyter:/app/project-ds
+    build: ./project-ds 
+  jupyter-engineer:
+    container_name: jupyter-engineer
+    labels:
+      description: Intel Python 2 using Jupyter Notebooks
+      name: jupyter notebook
+    ports:
+      - "8000:8000"
+    volumes:
+      - /home/wsl/jupyter:/app/project-engineer
+    build: ./project-engineer
+    depends_on: 
+     - jupyter-ds
+
