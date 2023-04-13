@@ -9,3 +9,4 @@ MLOPS 관련하여 실행코드와 관련 원리를 정리해놓았습니다.
 [docker 홈페이지 주소](https://docs.docker.com/get-started/https://docs.docker.com/get-started/)
 
 * 04_12: docker 저장 불러오기, 응용, docker-compose 기초
+* 04_13: docker-compose로 jupyter-notebook container 여러개 
