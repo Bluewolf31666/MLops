@@ -11,4 +11,4 @@ MLOPS 관련하여 실행코드와 관련 원리를 정리해놓았습니다.
 * 04_12: docker 저장 불러오기, 응용, docker-compose 기초
 ![docker_compose_img](https://blog.kakaocdn.net/dn/dEfWzS/btreoutnnPq/vi6jDSNoWK8SgKmFfCDKh1/img.png)
 
-* 04_13: docker-compose로 jupyter-notebook container 여러개 구현하기, mysql내용 추가
+* 04_13: docker-compose로 jupyter-notebook container 여러개 구현하기, mysql내용 추가, mongodb 연결 추가 
