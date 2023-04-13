@@ -1,4 +1,4 @@
-# MLops_test
+# MLops
 
 MLOPS 관련하여 실행코드와 관련 원리를 정리해놓았습니다.
 
